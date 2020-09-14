@@ -59,7 +59,7 @@ for fname in glob.glob(join(setup_dir, "*-requirements.txt")):
     key = fname[:-17]
     with open(fname) as fp:
         reqs = fp.readlines()
-    
+
     extras_requires[key] = reqs
     all_reqs |= set(reqs)
 
