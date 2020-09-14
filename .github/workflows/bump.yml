@@ -1,0 +1,33 @@
+---
+name: bump
+
+on: [repository_dispatch]
+
+jobs:
+  bump:
+    if: github.event_name == 'repository_dispatch' && github.event.action == 'tag'
+    runs-on: ubuntu-latest
+    steps:
+    - name: Information
+      run: |
+        echo "Version update for ${{ github.event.client_payload.package_name }} -> ${{ github.event.client_payload.package_version }} requested"
+    - uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.REPO_ACCESS_TOKEN }}
+        fetch-depth: 0
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    
+    - name: Bump Requirements
+      uses: robotpy/build-actions/bump-requirements@master
+      with:
+        pkgname: ${{ github.event.client_payload.package_name }}
+        pkgver: ${{ github.event.client_payload.package_version }}
+
+    - name: Bump Version and push Tag
+      uses: anothrNick/github-tag-action@1.26.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
+        DEFAULT_BUMP: patch
+        WITH_V: false
