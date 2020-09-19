@@ -1,2 +1,2 @@
 robotpy-rev>=2020.1.1,<2021.0.0
-robotpy-rev-color>=2020.1.2.0,<2021.0.0
+robotpy-rev-color<2021.0.0,>=2020.1.2.1
