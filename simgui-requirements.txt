@@ -1,0 +1,1 @@
+robotpy-halsim-gui<2021.0.0.0,>=2020.3.2.1; platform_machine != "armv7l"
