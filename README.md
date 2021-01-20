@@ -35,7 +35,7 @@ categories are:
 * ctre
 * navx
 * rev
-* simgui
+* sim
 
 Let's say that you wanted to install the latest version of the NavX software
 along with command based programming. You would do this:

@@ -2,11 +2,15 @@
 # is an easy shortcut to upgrade to the latest version of everything,
 # which is always going to be the desired behavior for our users
 
-robotpy-wpiutil<2021.0.0.0,>=2020.3.2.2
-pyntcore<2021.0.0.0,>=2020.3.2.2
-robotpy-hal<2021.0.0.0,>=2020.3.2.6
-wpilib<2021.0.0.0,>=2020.3.2.5
+robotpy-wpiutil<2022.0.0.0,>=2021.2.1.1
+robotpy-wpimath<2022.0.0.0,>=2021.2.1.0
+pyntcore<2022.0.0.0,>=2021.2.1.0
+robotpy-hal<2022.0.0.0,>=2021.2.1.0
+wpilib<2022.0.0.0,>=2021.2.1.0
 
-robotpy-wpilib-utilities>=2020.2.0,<2021.0.0.0
+pynetworktables<2022.0.0.0,>=2021.0.0
+robotpy-wpilib-utilities<2022.0.0.0,>=2021.0.0
 
-pyfrc<2021.0.0.0,>=2020.1.5; platform_machine != "armv7l"
+robotpy-installer<2022.0.0.0,>=2021.0.0; platform_machine != "armv7l"
+pyfrc<2022.0.0.0,>=2021.0.0; platform_machine != "armv7l"
+robotpy-halsim-gui<2022.0.0.0,>=2021.2.1.0; platform_machine != "armv7l"
