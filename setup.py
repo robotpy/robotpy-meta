@@ -80,7 +80,7 @@ setup(
     packages=find_packages(),
     install_requires=install_requires,
     extras_require=extras_requires,
-    requires_python=">=3.6",
+    python_requires=">=3.6",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
