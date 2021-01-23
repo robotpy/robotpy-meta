@@ -1,6 +1,6 @@
 def main():
-    print(
-        r"""
+
+    robotpy_logo = r"""
                                                   /PPPPPPPPPPYYYYYYYYYY\       
                                                  /PPPPPPPPPPPYYYYYYYYYYY\      
                                                 /PPPPPPPPPPPPYYYYYYYYYYYY\     
@@ -18,7 +18,24 @@ RR   RR  OOOOOO  BBBBBB   OOOOOO     TT        \PPP  PPPPPPPPYYYYY  YYYYYY/
                                                  \PPPPPPPPPPPYYYYYYYYYYY/      
                                                   \PPPPPPPPPPYYYYYYYYYY/       
 """
-    )
+
+    try:
+        from colorama import init, Back, Style
+
+        init()
+        robotpy_logo = (
+            robotpy_logo.replace("R", Back.BLUE + "R" + Style.RESET_ALL)
+            .replace("O", Back.BLUE + "O" + Style.RESET_ALL)
+            .replace("B", Back.BLUE + "B" + Style.RESET_ALL)
+            .replace("T", Back.BLUE + "T" + Style.RESET_ALL)
+            .replace("P", Back.BLUE + "P" + Style.RESET_ALL)
+            .replace("Y", Back.BLUE + "Y" + Style.RESET_ALL)
+            + Style.RESET_ALL
+        )
+    except:
+        pass
+
+    print(robotpy_logo)
 
 
 if __name__ == "__main__":
