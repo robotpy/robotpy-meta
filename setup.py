@@ -6,13 +6,12 @@ if sys.version_info < (3, 6):
     sys.stderr.write("ERROR: RobotPy requires Python 3.6+\n")
     exit(1)
 
-# from os.path import dirname, exists, join
 import subprocess
 from setuptools import find_packages, setup
 from pathlib import Path
 
 setup_dir = Path(__file__).parent
-git_dir = setup_dir.with_suffix(".git")
+git_dir = setup_dir / ".git"
 base_package = "robotpy"
 version_file = setup_dir / base_package / "version.py"
 
@@ -48,9 +47,9 @@ else:
 
 def get_reqs_from_path(path):
     return [
-        req.strip()
+        req
         for req in Path(path).read_text().splitlines()
-        if req.strip() and not req.startswith("#")
+        if req and not req.startswith("#")
     ]
 
 
