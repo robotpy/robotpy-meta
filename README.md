@@ -32,6 +32,7 @@ categories are:
 
 * adi
 * commands
+* commands2
 * ctre
 * navx
 * rev
@@ -43,13 +44,13 @@ along with command based programming. You would do this:
 On Windows:
 
 ```
-py -3 -m pip install -U robotpy[navx,commands]
+py -3 -m pip install -U robotpy[navx,commands2]
 ```
 
 On Linux/OSX:
 
 ```
-pip3 install -U robotpy[navx,commands]
+pip3 install -U robotpy[navx,commands2]
 ```
 
 Install all optional components
