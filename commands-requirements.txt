@@ -1,1 +1,1 @@
-robotpy-commands-v1<2022.0.0,>=2021.2.1.0
+robotpy-commands-v1<2022.0.0,>=2021.2.2.0
