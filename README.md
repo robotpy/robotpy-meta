@@ -35,6 +35,7 @@ categories are:
 * commands2
 * ctre
 * navx
+* playingwithfusion
 * rev
 * sim
 

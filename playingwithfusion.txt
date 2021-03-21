@@ -1,0 +1,1 @@
+robotpy-playingwithfusion>=2021.0.0,<2022.0.0
