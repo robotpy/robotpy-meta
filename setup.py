@@ -2,7 +2,7 @@
 
 import sys
 
-if sys.version_info < (3, 6):
+if sys.version_info < (3, 7):
     sys.stderr.write("ERROR: RobotPy requires Python 3.6+\n")
     exit(1)
 
@@ -82,14 +82,13 @@ setup(
     packages=find_packages(),
     install_requires=install_requires,
     extras_require=extras_require,
-    python_requires=">=3.6",
+    python_requires=">=3.7",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
         "Intended Audience :: Education",
         "License :: OSI Approved :: BSD License",
         "Programming Language :: Python :: 3 :: Only",
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
