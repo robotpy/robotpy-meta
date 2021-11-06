@@ -3,7 +3,7 @@
 import sys
 
 if sys.version_info < (3, 7):
-    sys.stderr.write("ERROR: RobotPy requires Python 3.6+\n")
+    sys.stderr.write("ERROR: RobotPy requires Python 3.7+\n")
     exit(1)
 
 import subprocess
