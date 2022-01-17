@@ -30,13 +30,13 @@ There are several categories of optional components that you can install. This
 uses the standard pip 'extras' installation functionality. The available
 categories are:
 
-* adi
 * commands
 * commands2
 * ctre
 * navx
 * playingwithfusion
 * rev
+* romi
 * sim
 
 Let's say that you wanted to install the latest version of the NavX software
