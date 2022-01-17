@@ -1,1 +1,1 @@
-robotpy-playingwithfusion<2023.0.0,>=2022.0.1; platform_system != "Darwin"
+robotpy-playingwithfusion<2023.0.0,>=2022.0.1
