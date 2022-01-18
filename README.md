@@ -34,6 +34,7 @@ categories are:
 * commands2
 * ctre
 * navx
+* photonvision
 * playingwithfusion
 * rev
 * romi
