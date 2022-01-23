@@ -1,1 +1,1 @@
-robotpy-photonvision<2023.0.0,>=2022.0.2
+robotpy-photonvision<2023.0.0,>=2022.0.3
