@@ -6,7 +6,7 @@ robotpy-wpiutil<2023.0.0,>=2022.2.1.1
 robotpy-wpimath<2023.0.0,>=2022.2.1.2
 pyntcore<2023.0.0,>=2022.2.1.1
 robotpy-hal<2023.0.0,>=2022.2.1.1
-wpilib<2023.0.0,>=2022.2.1.1
+wpilib<2023.0.0,>=2022.2.1.3
 
 pynetworktables<2023.0.0.0,>=2021.0.0
 robotpy-wpilib-utilities<2023.0.0,>=2022.0.0
