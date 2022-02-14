@@ -3,7 +3,7 @@
 # which is always going to be the desired behavior for our users
 
 robotpy-wpiutil<2023.0.0,>=2022.3.1.2
-robotpy-wpimath<2023.0.0,>=2022.3.1.0
+robotpy-wpimath<2023.0.0,>=2022.3.1.1
 pyntcore<2023.0.0,>=2022.3.1.0
 robotpy-hal<2023.0.0,>=2022.3.1.0
 wpilib<2023.0.0,>=2022.3.1.1
