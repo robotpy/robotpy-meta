@@ -20,7 +20,7 @@ jobs:
         python-version: 3.8
     
     - name: Bump Requirements
-      uses: robotpy/build-actions/bump-requirements@v2020
+      uses: robotpy/build-actions/bump-requirements@v2022
       with:
         pkgname: ${{ github.event.client_payload.package_name }}
         pkgver: ${{ github.event.client_payload.package_version }}
