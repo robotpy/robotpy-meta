@@ -27,16 +27,16 @@ jobs:
       shell: bash
       run: |
         if [ ! -f pause_until ]; then
-          echo "::set-output paused=no"
+          echo "::set-output name=paused::no"
         elif [ "$(cat pause_until)" == "${{ github.event.client_payload.package_name }}" ]; then
           rm pause_until
           git config --local user.email "action@github.com"
           git config --local user.name "Github Action"
           git commit -m "Remove paused marker" pause_until
           git push
-          echo "::set-output paused=no"
+          echo "::set-output name=paused::no"
         else
-          echo "::set-output paused=yes"
+          echo "::set-output name=paused::yes"
         fi
     
     - name: Bump Requirements
