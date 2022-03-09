@@ -9,7 +9,7 @@ robotpy-hal<2023.0.0,>=2022.4.1.1
 wpilib<2023.0.0,>=2022.4.1.2
 
 pynetworktables<2023.0.0.0,>=2021.0.0
-robotpy-wpilib-utilities<2023.0.0,>=2022.0.2
+robotpy-wpilib-utilities<2023.0.0,>=2022.0.3
 
 robotpy-installer<2023.0.0,>=2022.1.1; platform_machine != "armv7l"
 pyfrc<2023.0.0,>=2022.1.0; platform_machine != "armv7l"
