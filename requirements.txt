@@ -2,7 +2,7 @@
 # is an easy shortcut to upgrade to the latest version of everything,
 # which is always going to be the desired behavior for our users
 
-robotpy-wpiutil<2023.0.0,>=2022.4.1.1
+robotpy-wpiutil<2023.0.0,>=2022.4.1.2
 robotpy-wpimath<2023.0.0,>=2022.4.1.0
 pyntcore<2023.0.0,>=2022.4.1.0
 robotpy-hal<2023.0.0,>=2022.4.1.1
