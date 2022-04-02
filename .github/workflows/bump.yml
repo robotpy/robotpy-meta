@@ -22,22 +22,22 @@ jobs:
     # To prevent lots of spurious pypi package pushes during upgrades, you can
     # commit a file 'pause_until'. This will only push a new tag once that
     # package has been reached
-    - name: Check if paused
-      id: check-paused
-      shell: bash
-      run: |
-        if [ ! -f pause_until ]; then
-          echo "::set-output name=paused::no"
-        elif [ "$(cat pause_until)" == "${{ github.event.client_payload.package_name }}" ]; then
-          rm pause_until
-          git config --local user.email "action@github.com"
-          git config --local user.name "Github Action"
-          git commit -m "Remove paused marker" pause_until
-          git push
-          echo "::set-output name=paused::no"
-        else
-          echo "::set-output name=paused::yes"
-        fi
+    # - name: Check if paused
+    #   id: check-paused
+    #   shell: bash
+    #   run: |
+    #     if [ ! -f pause_until ]; then
+    #       echo "::set-output name=paused::no"
+    #     elif [ "$(cat pause_until)" == "${{ github.event.client_payload.package_name }}" ]; then
+    #       rm pause_until
+    #       git config --local user.email "action@github.com"
+    #       git config --local user.name "Github Action"
+    #       git commit -m "Remove paused marker" pause_until
+    #       git push
+    #       echo "::set-output name=paused::no"
+    #     else
+    #       echo "::set-output name=paused::yes"
+    #     fi
     
     - name: Bump Requirements
       uses: robotpy/build-actions/bump-requirements@v2022
@@ -47,7 +47,7 @@ jobs:
 
     - name: Bump Version and push Tag
       uses: anothrNick/github-tag-action@1.38.0
-      if: steps.check-paused.paused == 'no'
+      # if: steps.check-paused.paused == 'no'
       env:
         GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
         DEFAULT_BUMP: patch
