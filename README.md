@@ -34,6 +34,7 @@ categories are:
 * commands2
 * ctre
 * navx
+* pathplannerlib
 * photonvision
 * playingwithfusion
 * rev
