@@ -45,10 +45,10 @@ jobs:
         pkgname: ${{ github.event.client_payload.package_name }}
         pkgver: ${{ github.event.client_payload.package_version }}
 
-    - name: Bump Version and push Tag
-      uses: anothrNick/github-tag-action@1.38.0
-      # if: steps.check-paused.paused == 'no'
-      env:
-        GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
-        DEFAULT_BUMP: patch
-        WITH_V: false
+    # - name: Bump Version and push Tag
+    #   uses: anothrNick/github-tag-action@1.38.0
+    #   # if: steps.check-paused.paused == 'no'
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
+    #     DEFAULT_BUMP: patch
+    #     WITH_V: false
