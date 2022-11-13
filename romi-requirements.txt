@@ -1,1 +1,2 @@
-robotpy-romi<2023.0.0,>=2022.2.1.0; platform_machine != "armv7l"
+# Not updated for 2023 yet?
+# robotpy-romi<2024.0.0,>=2022.2.1.0; platform_machine != "armv7l"

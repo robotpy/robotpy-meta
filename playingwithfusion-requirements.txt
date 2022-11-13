@@ -1,1 +1,1 @@
-robotpy-playingwithfusion<2023.0.0,>=2022.0.4
+# robotpy-playingwithfusion<2024.0.0,>=2022.0.4

@@ -30,7 +30,6 @@ There are several categories of optional components that you can install. This
 uses the standard pip 'extras' installation functionality. The available
 categories are:
 
-* commands
 * commands2
 * ctre
 * navx
