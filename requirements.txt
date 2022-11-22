@@ -2,14 +2,14 @@
 # is an easy shortcut to upgrade to the latest version of everything,
 # which is always going to be the desired behavior for our users
 
-robotpy-wpiutil<2024.0.0,>=2023.0.0b3.post1
-robotpy-wpimath<2024.0.0,>=2023.0.0b3.post2
-pyntcore<2024.0.0,>=2023.0.0b3.post1
-robotpy-hal<2024.0.0,>=2023.0.0b3.post1
-wpilib<2024.0.0,>=2023.0.0b3
+robotpy-wpiutil<2024.0.0,>=2023.0.0b4
+robotpy-wpimath<2024.0.0,>=2023.0.0b4
+pyntcore<2024.0.0,>=2023.0.0b4
+robotpy-hal<2024.0.0,>=2023.0.0b4
+wpilib<2024.0.0,>=2023.0.0b4
 
 # robotpy-wpilib-utilities<2024.0.0,>=2022.0.5
 
 robotpy-installer<2024.0.0,>=2023.0.0b3; platform_machine != "armv7l"
-pyfrc<2024.0.0,>=2023.0.0b3; platform_machine != "armv7l"
-robotpy-halsim-gui<2024.0.0,>=2023.0.0b3; platform_machine != "armv7l"
+pyfrc<2024.0.0,>=2023.0.0b4; platform_machine != "armv7l"
+robotpy-halsim-gui<2024.0.0,>=2023.0.0b4; platform_machine != "armv7l"
