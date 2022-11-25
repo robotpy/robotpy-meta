@@ -6,10 +6,10 @@ robotpy-wpiutil<2024.0.0,>=2023.0.0b4
 robotpy-wpimath<2024.0.0,>=2023.0.0b4
 pyntcore<2024.0.0,>=2023.0.0b4
 robotpy-hal<2024.0.0,>=2023.0.0b4
-wpilib<2024.0.0,>=2023.0.0b4
+wpilib<2024.0.0,>=2023.0.0b4.post1
 
 # robotpy-wpilib-utilities<2024.0.0,>=2022.0.5
 
-robotpy-installer<2024.0.0,>=2023.0.0b3; platform_machine != "armv7l"
+robotpy-installer<2024.0.0,>=2023.0.0b4; platform_machine != "armv7l"
 pyfrc<2024.0.0,>=2023.0.0b4; platform_machine != "armv7l"
 robotpy-halsim-gui<2024.0.0,>=2023.0.0b4; platform_machine != "armv7l"
