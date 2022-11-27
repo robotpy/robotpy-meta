@@ -25,7 +25,6 @@ jobs:
       run: python -m build
 
     - uses: actions/upload-artifact@v2
-      if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
       with:
         name: dist
         path: dist
