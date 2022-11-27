@@ -5,13 +5,13 @@ on: [push, pull_request]
 
 jobs:
   check:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v3
     - uses: psf/black@stable
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
     - uses: actions/checkout@v1
@@ -30,7 +30,7 @@ jobs:
         path: dist
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: [build]
 
     steps:
@@ -47,7 +47,7 @@ jobs:
       run: pip install dist/*.whl
 
   publish:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: [check, test]
     if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
 
