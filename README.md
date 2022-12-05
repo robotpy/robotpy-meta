@@ -31,6 +31,7 @@ uses the standard pip 'extras' installation functionality. The available
 categories are:
 
 * commands2
+* cscore
 * ctre
 * navx
 * pathplannerlib
