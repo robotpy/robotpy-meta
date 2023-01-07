@@ -30,16 +30,20 @@ There are several categories of optional components that you can install. This
 uses the standard pip 'extras' installation functionality. The available
 categories are:
 
+* apriltag
 * commands2
 * cscore
 * ctre
+* playingwithfusion
+* rev
+* sim
+
+The following aren't available for 2023 yet:
+
 * navx
 * pathplannerlib
 * photonvision
-* playingwithfusion
-* rev
 * romi
-* sim
 
 Let's say that you wanted to install the latest version of the NavX software
 along with command based programming. You would do this:

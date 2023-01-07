@@ -62,9 +62,9 @@ for fpath in setup_dir.glob("*-requirements.txt"):
     key = fpath.stem[:-13]  # stem doesn't have .txt
 
     reqs = get_reqs_from_path(fpath)
-
-    extras_require[key] = reqs
-    all_reqs |= set(reqs)
+    if reqs:
+        extras_require[key] = reqs
+        all_reqs |= set(reqs)
 
 extras_require["all"] = all_reqs
 

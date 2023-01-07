@@ -1,0 +1,6 @@
+robotpy-apriltag==2023.1.1.0
+
+# for other platforms there are a lot of ways to install numpy/OpenCV
+# and we shouldn't dictate it
+numpy; platform_machine == "armv7l"
+robotpy-opencv; platform_machine == "armv7l"
