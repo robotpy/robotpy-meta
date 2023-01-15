@@ -1,2 +1,1 @@
-# Not updated for 2023 yet
-# robotpy-navx<2024.0.0,>=2023.0.0b1
+robotpy-navx<2024.0.0,>=2023.0.1
