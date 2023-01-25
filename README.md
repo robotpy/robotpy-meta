@@ -34,15 +34,15 @@ categories are:
 * commands2
 * cscore
 * ctre
+* navx
+* pathplannerlib
+* photonvision
 * playingwithfusion
 * rev
 * sim
 
 The following aren't available for 2023 yet:
 
-* navx
-* pathplannerlib
-* photonvision
 * romi
 
 Let's say that you wanted to install the latest version of the NavX software

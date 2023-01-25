@@ -1,1 +1,1 @@
-# robotpy-pathplannerlib<2023.0.0,>=2022.2.3
+robotpy-pathplannerlib<2024.0.0,>=2023.0.0
