@@ -6,7 +6,7 @@
 # is directly associated with a specific set of wpilib packages
 robotpy-wpiutil==2023.2.1.1
 robotpy-wpimath==2023.2.1.1
-pyntcore==2023.2.1.2
+pyntcore==2023.2.1.4
 robotpy-hal==2023.2.1.1
 wpilib==2023.2.1.1
 
