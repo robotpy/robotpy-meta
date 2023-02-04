@@ -1,4 +1,4 @@
-robotpy-apriltag==2023.2.1.1
+robotpy-apriltag==2023.3.1.0
 
 # for other platforms there are a lot of ways to install numpy/OpenCV
 # and we shouldn't dictate it
