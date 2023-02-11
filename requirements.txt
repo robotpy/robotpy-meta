@@ -14,5 +14,5 @@ robotpy-wpilib-utilities==2023.0.0
 robotpy-halsim-gui==2023.3.2.1; platform_machine != "armv7l"
 
 # These are not pinned
-robotpy-installer<2024.0.0,>=2023.0.1; platform_machine != "armv7l"
+robotpy-installer<2024.0.0,>=2023.0.2; platform_machine != "armv7l"
 pyfrc<2024.0.0,>=2023.0.1; platform_machine != "armv7l"
