@@ -1,2 +1,2 @@
-robotpy-halsim-ds-socket==2023.3.2.1; platform_machine != "armv7l"
-robotpy-halsim-ws==2023.3.2.1; platform_machine != "armv7l"
+robotpy-halsim-ds-socket==2023.4.1.0; platform_machine != "armv7l"
+robotpy-halsim-ws==2023.4.1.0; platform_machine != "armv7l"
