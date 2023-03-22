@@ -5,7 +5,7 @@
 # We now pin allwpilib based packages so that a specific install of robotpy-meta
 # is directly associated with a specific set of wpilib packages
 robotpy-wpiutil==2023.4.2.0
-robotpy-wpimath==2023.4.2.1
+robotpy-wpimath==2023.4.2.2
 pyntcore==2023.4.2.0
 robotpy-hal==2023.4.2.0
 wpilib==2023.4.2.0
