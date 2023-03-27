@@ -1,4 +1,4 @@
-robotpy-cscore==2023.4.2.0
+robotpy-cscore==2023.4.3.0
 
 # basic CameraServer works without NumPy/OpenCV installed, so only require
 # them on a RoboRIO -- for other platforms there are a lot of ways to
