@@ -7,7 +7,7 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - uses: psf/black@stable
 
   build:
@@ -23,16 +23,113 @@ jobs:
 
     - name: Build packages
       run: python -m build
-
-    - uses: actions/upload-artifact@v2
-      if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
+    
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
       with:
         name: dist
         path: dist
 
+  test:
+    needs: [build]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-2022, macos-12, ubuntu-22.04]
+        python_version:
+        - '3.8'
+        - '3.9'
+        - '3.10'
+        - '3.11'
+        - '3.12'
+        architecture: [x64]
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python_version }}
+        architecture: ${{ matrix.architecture }}
+    
+    - name: Download build artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: dist
+        path: dist
+
+    - name: Show installed packages
+      shell: bash
+      run: |
+        python -m pip list
+    
+    - name: Install native wheel
+      shell: bash
+      run: |
+        cd dist
+        WHEEL=$(ls *.whl)
+        python -m pip --disable-pip-version-check install ${WHEEL}[all]
+
+    # Only need to test that the wheel installs
+
+  cross-test:
+    runs-on: ubuntu-latest
+    needs: [build]
+    strategy:
+      matrix:
+        os:
+        - container: wpilib/roborio-cross-ubuntu:2024-22.04-py312
+          name: roborio
+
+        - container: wpilib/raspbian-cross-ubuntu:bullseye-22.04-py38
+          name: raspbian
+        - container: wpilib/raspbian-cross-ubuntu:bullseye-22.04-py39
+          name: raspbian
+        - container: wpilib/raspbian-cross-ubuntu:bullseye-22.04-py310
+          name: raspbian
+        - container: wpilib/raspbian-cross-ubuntu:bullseye-22.04-py311
+          name: raspbian
+        - container: wpilib/raspbian-cross-ubuntu:bullseye-22.04-py312
+          name: raspbian
+        
+        - container: wpilib/aarch64-cross-ubuntu:bullseye-22.04-py38
+          name: raspbian
+        - container: wpilib/aarch64-cross-ubuntu:bullseye-22.04-py39
+          name: raspbian
+        - container: wpilib/aarch64-cross-ubuntu:bullseye-22.04-py310
+          name: raspbian
+        - container: wpilib/aarch64-cross-ubuntu:bullseye-22.04-py311
+          name: raspbian
+        - container: wpilib/aarch64-cross-ubuntu:bullseye-22.04-py312
+          name: raspbian
+
+    container:
+      image: "${{ matrix.os.container }}"
+
+    steps:
+    - uses: actions/checkout@v4
+      if: (inputs.enable_raspbian && matrix.os.name == 'raspbian') || (inputs.enable_roborio && matrix.os.name == 'roborio')
+
+    - name: Show installed packages
+      shell: bash
+      run: |
+        /build/venv/bin/cross-python -m pip list
+
+    - uses: actions/download-artifact@v3
+      with:
+        name: dist
+        path: dist/
+
+    - name: Install
+      working-directory: dist
+      run: |
+        WHEEL=$(ls *.whl)
+        /build/venv/bin/cross-pip --disable-pip-version-check install ${WHEEL}[all]
+
   publish:
     runs-on: ubuntu-latest
-    needs: [check, build]
+    needs: [check, test, cross-test]
+    permissions:
+      id-token: write
     if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
 
     steps:
@@ -42,6 +139,4 @@ jobs:
         path: dist/
 
     - name: Publish to PyPI
-      uses: pypa/gh-action-pypi-publish@v1.5.1
-      with:
-        password: ${{ secrets.pypi_password }}
+      uses: pypa/gh-action-pypi-publish@release/v1
