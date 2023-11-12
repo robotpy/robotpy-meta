@@ -33,9 +33,10 @@ categories are:
 * apriltag
 * commands2
 * cscore
-* ctre
 * navx
 * pathplannerlib
+* phoenix5
+* phoenix6
 * photonvision
 * playingwithfusion
 * rev
