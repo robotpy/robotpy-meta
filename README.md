@@ -78,3 +78,21 @@ On Linux/OSX:
 ```
 pip3 install -U robotpy[all]
 ```
+
+Run your robot.py
+-----------------
+
+Use these commands to discover subcommands that you can use to manage and execute
+your robot project:
+
+On Windows:
+
+```
+py -3 -m robotpy
+```
+
+On Linux/macOS:
+
+```
+python -m robotpy
+```

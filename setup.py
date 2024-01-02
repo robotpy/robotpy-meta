@@ -59,5 +59,6 @@ setup(
         "Topic :: Software Development",
         "Topic :: Software Development :: Testing",
     ],
+    entry_points={"console_scripts": ["robotpy=robotpy.main:main"]},
     use_scm_version=True,
 )
