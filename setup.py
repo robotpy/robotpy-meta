@@ -4,7 +4,6 @@ from setuptools import find_packages, setup
 from pathlib import Path
 
 setup_dir = Path(__file__).parent
-base_package = "robotpy"
 
 
 def get_reqs_from_path(path):
