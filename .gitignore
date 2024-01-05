@@ -1,8 +1,6 @@
 *.pyc
 *.egg-info
 
-/robotpy/version.py
-
 /.vscode
 /build
 /dist

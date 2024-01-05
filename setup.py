@@ -4,7 +4,6 @@ from setuptools import find_packages, setup
 from pathlib import Path
 
 setup_dir = Path(__file__).parent
-base_package = "robotpy"
 
 
 def get_reqs_from_path(path):
@@ -40,7 +39,6 @@ setup(
     author_email="robotpy@googlegroups.com",
     url="https://github.com/robotpy/robotpy-meta",
     license="BSD-3-Clause",
-    packages=find_packages(),
     install_requires=install_requires,
     extras_require=extras_require,
     python_requires=">=3.8,<3.13",
