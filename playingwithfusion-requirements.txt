@@ -1,1 +1,2 @@
 #robotpy-playingwithfusion<2024.0.0,>=2023.0.0
+error-playingwithfusion-not-available-yet

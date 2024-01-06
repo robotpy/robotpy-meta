@@ -4,16 +4,16 @@
 
 # We now pin allwpilib based packages so that a specific install of robotpy-meta
 # is directly associated with a specific set of wpilib packages
-robotpy-wpiutil==2024.0.0b4.post1
-robotpy-wpinet==2024.0.0b4.post1
-robotpy-wpimath==2024.0.0b4.post1
-pyntcore==2024.0.0b4.post1
-robotpy-hal==2024.0.0b4.post1
-wpilib==2024.0.0b4.post1
+robotpy-wpiutil==2024.1.1.0
+robotpy-wpinet==2024.1.1.0
+robotpy-wpimath==2024.1.1.0
+pyntcore==2024.1.1.0
+robotpy-hal==2024.1.1.0
+wpilib==2024.1.1.0
 
-robotpy-halsim-gui==2024.0.0b4.post1; platform_machine != "roborio" and platform_machine != "armv7l" and platform_machine != "aarch64"
+robotpy-halsim-gui==2024.1.1.0; platform_machine != "roborio" and platform_machine != "armv7l" and platform_machine != "aarch64"
 
 # These are not pinned
-robotpy-wpilib-utilities<2025,>=2024.0.0b1
-robotpy-installer<2025,>=2024.0.0b1; platform_machine != "roborio" and platform_machine != "armv7l" and platform_machine != "aarch64"
-pyfrc<2025,>=2024.0.0b3; platform_machine != "roborio" and platform_machine != "armv7l" and platform_machine != "aarch64"
+robotpy-wpilib-utilities<2025,>=2024.0.0
+robotpy-installer<2025,>=2024.0.2; platform_machine != "roborio" and platform_machine != "armv7l" and platform_machine != "aarch64"
+pyfrc<2025,>=2024.0.0; platform_machine != "roborio" and platform_machine != "armv7l" and platform_machine != "aarch64"

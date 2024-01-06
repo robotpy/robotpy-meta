@@ -2,19 +2,22 @@
 
 from setuptools import find_packages, setup
 from pathlib import Path
+import re
 
 setup_dir = Path(__file__).parent
 
 
 def get_reqs_from_path(path):
+    content = Path(path).read_text()
+
+    # Do not include in all requirements if this special package is in there
+    in_all = bool(re.match(r"^error-(.*)-not-available-yet$", content, re.MULTILINE))
     return [
-        req
-        for req in Path(path).read_text().splitlines()
-        if req and not req.startswith("#")
-    ]
+        req for req in content.splitlines() if req and not req.startswith("#")
+    ], in_all
 
 
-install_requires = get_reqs_from_path(setup_dir / "requirements.txt")
+install_requires, _ = get_reqs_from_path(setup_dir / "requirements.txt")
 all_reqs = set(install_requires)
 
 extras_require = {}
@@ -22,10 +25,11 @@ extras_require = {}
 for fpath in setup_dir.glob("*-requirements.txt"):
     key = fpath.stem[:-13]  # stem doesn't have .txt
 
-    reqs = get_reqs_from_path(fpath)
+    reqs, in_all = get_reqs_from_path(fpath)
     if reqs:
         extras_require[key] = reqs
-        all_reqs |= set(reqs)
+        if in_all:
+            all_reqs |= set(reqs)
 
 extras_require["all"] = all_reqs
 
