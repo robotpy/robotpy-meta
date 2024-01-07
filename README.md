@@ -26,6 +26,11 @@ pip3 install -U robotpy
 Install optional RobotPy components
 -----------------------------------
 
+> [!NOTE]
+> At the beginning of build season not all components are available because
+> vendors haven't made releases set. If you install one of those components,
+> it will try to install `error-NAME-not-available-yet`
+
 There are several categories of optional components that you can install. This
 uses the standard pip 'extras' installation functionality. The available
 categories are:
@@ -37,7 +42,6 @@ categories are:
 * pathplannerlib
 * phoenix5
 * phoenix6
-* photonvision
 * playingwithfusion
 * rev
 * sim
