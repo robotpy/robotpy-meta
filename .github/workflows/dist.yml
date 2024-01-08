@@ -73,6 +73,11 @@ jobs:
         WHEEL=$(ls *.whl)
         python -m pip --disable-pip-version-check install ${WHEEL}[all]
 
+    - name: Show installed packages
+      shell: bash
+      run: |
+        python -m pip list
+
     # Only need to test that the wheel installs
 
   cross-test:
@@ -128,6 +133,11 @@ jobs:
       run: |
         WHEEL=$(ls *.whl)
         /build/venv/bin/cross-pip --disable-pip-version-check install ${WHEEL}[all]
+
+    - name: Show installed packages
+      shell: bash
+      run: |
+        /build/venv/bin/cross-python -m pip list
 
   publish:
     runs-on: ubuntu-latest

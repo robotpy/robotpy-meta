@@ -11,7 +11,7 @@ def get_reqs_from_path(path):
     content = Path(path).read_text()
 
     # Do not include in all requirements if this special package is in there
-    in_all = bool(re.match(r"^error-(.*)-not-available-yet$", content, re.MULTILINE))
+    in_all = re.search(r"^error-(.*)-not-available-yet$", content, re.MULTILINE) is None
     return [
         req for req in content.splitlines() if req and not req.startswith("#")
     ], in_all
