@@ -44,11 +44,9 @@ categories are:
 * phoenix6
 * playingwithfusion
 * rev
-* sim
-
-The following aren't available for 2023 yet:
-
 * romi
+* sim
+* xrp
 
 Let's say that you wanted to install the latest version of the NavX software
 along with command based programming. You would do this:
