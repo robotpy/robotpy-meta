@@ -1,2 +1,2 @@
-#robotpy-navx<2025.0.0,>=2024.0.0b1
-error-robotpy-navx-not-available-yet
+robotpy-navx<2025.0.0,>=2024.1.0
+# error-robotpy-navx-not-available-yet

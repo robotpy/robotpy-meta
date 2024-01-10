@@ -1,2 +1,2 @@
-#robotpy-pathplannerlib<2024.0.0,>=2023.0.0
-error-robotpy-pathplannerlib-not-available-yet
+robotpy-pathplannerlib<2025.0.0,>=2024.1.1
+# error-robotpy-pathplannerlib-not-available-yet

@@ -1,4 +1,2 @@
-#phoenix6~=24.0.0b2; python_version >= '3.9' and platform_machine != "armv7l" and platform_machine != "aarch64"
-#setuptools # phoenix6 implicit requirement
-
-error-phoenix6-not-available-yet
+phoenix6~=24.1; python_version >= '3.9' and platform_machine != "armv7l" and platform_machine != "aarch64"
+# error-phoenix6-not-available-yet
