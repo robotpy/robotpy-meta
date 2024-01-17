@@ -3,4 +3,6 @@ robotpy-apriltag==2024.1.1.1
 # for other platforms there are a lot of ways to install numpy/OpenCV
 # and we shouldn't dictate it
 numpy==1.25.2; platform_machine == "roborio"
-robotpy-opencv; platform_machine == "roborio"
+
+# OpenCV isn't strictly necessary for using the apriltag library, but it is useful.. but we omit it
++#robotpy-opencv; platform_machine == "roborio"
