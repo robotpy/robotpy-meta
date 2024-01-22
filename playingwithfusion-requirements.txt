@@ -1,2 +1,2 @@
-#robotpy-playingwithfusion<2024.0.0,>=2023.0.0
-error-playingwithfusion-not-available-yet
+robotpy-playingwithfusion<2025.0.0,>=2024.0.0
+# error-playingwithfusion-not-available-yet
