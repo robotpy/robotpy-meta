@@ -1,2 +1,2 @@
-# robotpy-commands-v2==2024.0.0b3
-error-robotpy-commands-v2-not-available-yet
+robotpy-commands-v2<2025.0.0,>=2024.2.1
+#error-robotpy-commands-v2-not-available-yet
