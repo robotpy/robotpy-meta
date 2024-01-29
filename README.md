@@ -29,7 +29,7 @@ Install optional RobotPy components
 > [!NOTE]
 > At the beginning of build season not all components are available because
 > vendors haven't made releases set. If you install one of those components,
-> it will try to install `error-NAME-not-available-yet`
+> it will try to install version `0.0.0`
 
 There are several categories of optional components that you can install. This
 uses the standard pip 'extras' installation functionality. The available

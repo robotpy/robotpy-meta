@@ -1,5 +1,178 @@
 [build-system]
-requires = ["setuptools>=45", "wheel", "setuptools_scm>=6.2,<8"]
+requires = [
+    "setuptools>=45",
+    "wheel",
+    "setuptools_scm>=6.2,<8",
+    "tomli",
+]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools_scm]
+
+#
+# Dependencies are built from the following data
+#
+
+[tool.meta.extras]
+default = [
+    "robotpy-wpiutil",
+    "robotpy-wpinet",
+    "robotpy-wpimath",
+    "pyntcore",
+    "robotpy-hal",
+    "wpilib",
+
+    "robotpy-halsim-gui",
+    "robotpy-wpilib-utilities",
+    "robotpy-installer",
+    "pyfrc",
+    "robotpy-cli",
+]
+
+apriltag = ["robotpy-apriltag", "numpy"]
+
+commands2 = ["robotpy-commands-v2"]
+
+cscore = ["robotpy-cscore", "numpy", "robotpy-opencv"]
+
+navx = ["robotpy-navx"]
+
+pathplannerlib = ["robotpy-pathplannerlib"]
+
+photonvision = ["photonlibpy"]
+
+playingwithfusion = ["robotpy-playingwithfusion"]
+
+phoenix5 = ["robotpy-ctre"]
+
+phoenix6 = ["phoenix6"]
+
+rev = ["robotpy-rev"]
+
+romi = ["robotpy-romi"]
+
+sim = ["robotpy-halsim-ds-socket", "robotpy-halsim-ws"]
+
+xrp = ["robotpy-xrp"]
+
+#
+# mostrobotpy packages
+#
+
+[tool.meta.packages."mostrobotpy"]
+version = "==2024.2.1.2"
+
+[tool.meta.packages."pyntcore"]
+version = "mostrobotpy"
+
+[tool.meta.packages."robotpy-apriltag"]
+version = "mostrobotpy"
+
+[tool.meta.packages."robotpy-hal"]
+version = "mostrobotpy"
+
+[tool.meta.packages."robotpy-halsim-ds-socket"]
+version = "mostrobotpy"
+constraint = 'platform_machine != "roborio" and platform_machine != "armv7l" and platform_machine != "aarch64"'
+
+[tool.meta.packages."robotpy-halsim-gui"]
+version = "mostrobotpy"
+constraint = 'platform_machine != "roborio" and platform_machine != "armv7l" and platform_machine != "aarch64"'
+
+[tool.meta.packages."robotpy-halsim-ws"]
+version = "mostrobotpy"
+constraint = 'platform_machine != "roborio" and platform_machine != "armv7l" and platform_machine != "aarch64"'
+
+[tool.meta.packages."robotpy-cscore"]
+version = "mostrobotpy"
+
+[tool.meta.packages."robotpy-romi"]
+version = "mostrobotpy"
+constraint = 'platform_machine != "roborio"'
+
+[tool.meta.packages."robotpy-wpimath"]
+version = "mostrobotpy"
+
+[tool.meta.packages."robotpy-wpinet"]
+version = "mostrobotpy"
+
+[tool.meta.packages."robotpy-wpiutil"]
+version = "mostrobotpy"
+
+[tool.meta.packages."robotpy-xrp"]
+version = "mostrobotpy"
+constraint = 'platform_machine != "roborio"'
+
+[tool.meta.packages."wpilib"]
+version = "mostrobotpy"
+
+#
+# Other RobotPy packages
+#
+
+[tool.meta.packages."pyfrc"]
+max_version = "2025.0.0"
+min_version = "2024.0.0"
+constraint = 'platform_machine != "roborio" and platform_machine != "armv7l" and platform_machine != "aarch64"'
+
+[tool.meta.packages."robotpy-cli"]
+max_version = "2025.0.0"
+min_version = "2024.0.0"
+
+[tool.meta.packages."robotpy-commands-v2"]
+max_version = "2025.0.0"
+min_version = "2024.2.1"
+
+[tool.meta.packages."robotpy-installer"]
+max_version = "2025.0.0"
+min_version = "2024.1.3"
+constraint = 'platform_machine != "roborio" and platform_machine != "armv7l" and platform_machine != "aarch64"'
+
+[tool.meta.packages."robotpy-wpilib-utilities"]
+max_version = "2025.0.0"
+min_version = "2024.0.0"
+
+
+#
+# Third party and vendor
+#
+
+[tool.meta.packages."numpy"]
+version = "==1.25.2"
+constraint = "platform_machine == 'roborio'" # only require on RoboRIO
+
+[tool.meta.packages."robotpy-opencv"]
+version = ""
+constraint = "platform_machine == 'roborio'" # only require on RoboRIO
+
+[tool.meta.packages."phoenix6"]
+version = "~=24.1"
+constraint = "python_version >= '3.9' and platform_machine != 'armv7l' and platform_machine != 'aarch64'"
+
+[tool.meta.packages."photonlibpy"]
+max_version = "2025.0.0"
+min_version = "2024.2.2"
+
+[tool.meta.packages."robotpy-ctre"]
+max_version = "2025.0.0"
+min_version = "2024.1.1"
+constraint = "python_version >= '3.9' and platform_machine != 'armv7l' and platform_machine != 'aarch64'"
+
+[tool.meta.packages."robotpy-navx"]
+max_version = "2025.0.0"
+min_version = "2024.1.0"
+
+[tool.meta.packages."robotpy-pathplannerlib"]
+max_version = "2025.0.0"
+min_version = "2024.1.1"
+
+[tool.meta.packages."robotpy-playingwithfusion"]
+max_version = "2025.0.0"
+min_version = "2024.0.0"
+
+[tool.meta.packages."robotpy-rev"]
+max_version = "2025.0.0"
+min_version = "2024.2.0"
+
+[tool.meta.packages."invalid"]
+available = false

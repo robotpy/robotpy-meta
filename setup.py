@@ -1,37 +1,63 @@
 #!/usr/bin/env python3
 
-from setuptools import find_packages, setup
+from setuptools import setup
 from pathlib import Path
-import re
+
+import tomli
 
 setup_dir = Path(__file__).parent
 
+with open(setup_dir / "pyproject.toml", "rb") as fp:
+    data = tomli.load(fp)
 
-def get_reqs_from_path(path):
-    content = Path(path).read_text()
-
-    # Do not include in all requirements if this special package is in there
-    in_all = re.search(r"^error-(.*)-not-available-yet$", content, re.MULTILINE) is None
-    return [
-        req for req in content.splitlines() if req and not req.startswith("#")
-    ], in_all
-
-
-install_requires, _ = get_reqs_from_path(setup_dir / "requirements.txt")
-all_reqs = set(install_requires)
-
+install_requires = []
 extras_require = {}
+all_requires = {}
 
-for fpath in setup_dir.glob("*-requirements.txt"):
-    key = fpath.stem[:-13]  # stem doesn't have .txt
+tool_packages = data["tool"]["meta"]["packages"]
 
-    reqs, in_all = get_reqs_from_path(fpath)
-    if reqs:
-        extras_require[key] = reqs
-        if in_all:
-            all_reqs |= set(reqs)
+for ename, pkglist in data["tool"]["meta"]["extras"].items():
+    extra = {}
+    for pkg in pkglist:
+        package = tool_packages[pkg]
+        available = package.get("available", True)
+        if not available:
+            extra[ename] = f"{pkg}==0.0.0"
+            continue
 
-extras_require["all"] = all_reqs
+        version = package.get("version", None)
+        min_version = package.get("min_version", None)
+        max_version = package.get("max_version", None)
+        constraint = package.get("constraint", None)
+
+        if version in tool_packages:
+            package = tool_packages[version]
+            version = package.get("version", version)
+            min_version = package.get("min_version", min_version)
+            max_version = package.get("max_version", max_version)
+            constraint = package.get("constraint", constraint)
+
+        if version is not None:
+            req = f"{pkg}{version}"
+        elif min_version and max_version:
+            req = f"{pkg}<{max_version},>={min_version}"
+        else:
+            raise ValueError(f"{pkg}: need version or min/max version")
+
+        if constraint:
+            req = f"{req}; {constraint}"
+
+        extra[pkg] = req
+        all_requires[pkg] = req
+
+    if extra:
+        if ename == "default":
+            install_requires = list(extra.values())
+        else:
+            extras_require[ename] = list(extra.values())
+
+if all_requires:
+    extras_require["all"] = list(all_requires.values())
 
 long_description = (setup_dir / "README.md").read_text()
 

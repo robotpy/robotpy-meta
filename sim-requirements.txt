@@ -1,2 +1,0 @@
-robotpy-halsim-ds-socket==2024.2.1.2; platform_machine != "roborio"
-robotpy-halsim-ws==2024.2.1.2; platform_machine != "roborio"
