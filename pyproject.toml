@@ -60,7 +60,7 @@ xrp = ["robotpy-xrp"]
 #
 
 [tool.meta.packages."mostrobotpy"]
-version = "==2024.2.1.2"
+version = "==2024.3.1.0"
 
 [tool.meta.packages."pyntcore"]
 version = "mostrobotpy"
@@ -121,7 +121,7 @@ min_version = "2024.0.0"
 
 [tool.meta.packages."robotpy-commands-v2"]
 max_version = "2025.0.0"
-min_version = "2024.2.1"
+min_version = "2024.3.1"
 
 [tool.meta.packages."robotpy-installer"]
 max_version = "2025.0.0"
