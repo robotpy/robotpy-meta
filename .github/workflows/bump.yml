@@ -11,44 +11,36 @@ jobs:
     - name: Information
       run: |
         echo "Version update for ${{ github.event.client_payload.package_name }} -> ${{ github.event.client_payload.package_version }} requested"
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         token: ${{ secrets.REPO_ACCESS_TOKEN }}
         fetch-depth: 0
-    - uses: actions/setup-python@v2
+    - uses: actions/setup-python@v4
       with:
         python-version: 3.8
 
-    # To prevent lots of spurious pypi package pushes during upgrades, you can
-    # commit a file 'pause_until'. This will only push a new tag once that
-    # package has been reached
-    # - name: Check if paused
-    #   id: check-paused
-    #   shell: bash
-    #   run: |
-    #     if [ ! -f pause_until ]; then
-    #       echo "::set-output name=paused::no"
-    #     elif [ "$(cat pause_until)" == "${{ github.event.client_payload.package_name }}" ]; then
-    #       rm pause_until
-    #       git config --local user.email "action@github.com"
-    #       git config --local user.name "Github Action"
-    #       git commit -m "Remove paused marker" pause_until
-    #       git push
-    #       echo "::set-output name=paused::no"
-    #     else
-    #       echo "::set-output name=paused::yes"
-    #     fi
+    - name: Install script requirements
+      shell: bash
+      run: |
+        python -m pip --disable-pip-version-check install packaging tomlkit
     
-    - name: Bump Requirements
-      uses: robotpy/build-actions/bump-requirements@v2022
-      with:
-        pkgname: ${{ github.event.client_payload.package_name }}
-        pkgver: ${{ github.event.client_payload.package_version }}
+    - name: Bump requirements
+      shell: bash
+      run: |
+        python .github/workflows/bump.py ${{ github.event.client_payload.package_name }} ${{ github.event.client_payload.package_version }} "$(git describe --tags)"
 
-    # - name: Bump Version and push Tag
-    #   uses: anothrNick/github-tag-action@1.38.0
-    #   # if: steps.check-paused.paused == 'no'
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
-    #     DEFAULT_BUMP: patch
-    #     WITH_V: false
+    - name: Commit and push
+      shell: bash
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "Github Action"
+        git add pyproject.toml
+        git commit -m "Bump '${{ github.event.client_payload.package_name }}' dependency to '${{ github.event.client_payload.package_version }}'"
+        git push
+
+    - name: Tag and push
+      shell: bash
+      run: |
+        TAG=$(python .github/workflows/tag.py ${{ github.event.client_payload.package_name }} ${{ github.event.client_payload.package_version }} "$(git describe --tags --no-abbrev)")
+        git tag ${TAG}
+        git push origin ${TAG}
