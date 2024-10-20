@@ -15,15 +15,15 @@ jobs:
       with:
         token: ${{ secrets.REPO_ACCESS_TOKEN }}
         fetch-depth: 0
-    - uses: actions/setup-python@v4
+    - uses: actions/setup-python@v5
       with:
-        python-version: 3.8
+        python-version: "3.9"
 
     - name: Install script requirements
       shell: bash
       run: |
         python -m pip --disable-pip-version-check install packaging tomlkit
-    
+
     - name: Bump requirements
       shell: bash
       run: |
