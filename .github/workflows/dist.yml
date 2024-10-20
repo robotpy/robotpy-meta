@@ -25,17 +25,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: actions/setup-python@v4
+    - uses: actions/setup-python@v5
       with:
-        python-version: 3.8
+        python-version: "3.9"
 
     - run: pip install build
 
     - name: Build packages
       run: python -m build
-    
+
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: dist
         path: dist
@@ -45,24 +45,24 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-2022, macos-12, ubuntu-22.04]
+        os: [windows-2022, macos-13, ubuntu-22.04]
         python_version:
-        - '3.8'
         - '3.9'
         - '3.10'
         - '3.11'
         - '3.12'
+        - '3.13'
         architecture: [x64]
 
     steps:
     - uses: actions/checkout@v4
-    - uses: actions/setup-python@v4
+    - uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python_version }}
         architecture: ${{ matrix.architecture }}
-    
+
     - name: Download build artifacts
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: dist
         path: dist
@@ -71,7 +71,7 @@ jobs:
       shell: bash
       run: |
         python -m pip list
-    
+
     - name: Install native wheel
       shell: bash
       run: |
@@ -92,44 +92,44 @@ jobs:
     strategy:
       matrix:
         os:
-        - container: wpilib/roborio-cross-ubuntu:2024-22.04-py312
+        - container: wpilib/roborio-cross-ubuntu:2025-22.04-py313
           name: roborio
 
-        - container: wpilib/raspbian-cross-ubuntu:bullseye-22.04-py38
-          name: raspbian
-        - container: wpilib/raspbian-cross-ubuntu:bullseye-22.04-py39
-          name: raspbian
-        - container: wpilib/raspbian-cross-ubuntu:bullseye-22.04-py310
-          name: raspbian
-        - container: wpilib/raspbian-cross-ubuntu:bullseye-22.04-py311
-          name: raspbian
-        - container: wpilib/raspbian-cross-ubuntu:bullseye-22.04-py312
-          name: raspbian
-        
-        - container: wpilib/aarch64-cross-ubuntu:bullseye-22.04-py38
-          name: raspbian
-        - container: wpilib/aarch64-cross-ubuntu:bullseye-22.04-py39
-          name: raspbian
-        - container: wpilib/aarch64-cross-ubuntu:bullseye-22.04-py310
-          name: raspbian
-        - container: wpilib/aarch64-cross-ubuntu:bullseye-22.04-py311
-          name: raspbian
-        - container: wpilib/aarch64-cross-ubuntu:bullseye-22.04-py312
-          name: raspbian
+        - container: wpilib/raspbian-cross-ubuntu:2025-bullseye-22.04-py39
+          name: raspbian-py39
+        - container: wpilib/raspbian-cross-ubuntu:2025-bullseye-22.04-py310
+          name: raspbian-py310
+        - container: wpilib/raspbian-cross-ubuntu:2025-bullseye-22.04-py311
+          name: raspbian-py311
+        - container: wpilib/raspbian-cross-ubuntu:2025-bullseye-22.04-py312
+          name: raspbian-py312
+        - container: wpilib/raspbian-cross-ubuntu:2025-bullseye-22.04-py313
+          name: raspbian-py313
+
+        - container: wpilib/aarch64-cross-ubuntu:2025-bullseye-22.04-py39
+          name: raspbian-aarch64-py39
+        - container: wpilib/aarch64-cross-ubuntu:2025-bullseye-22.04-py310
+          name: raspbian-aarch64-py310
+        - container: wpilib/aarch64-cross-ubuntu:2025-bullseye-22.04-py311
+          name: raspbian-aarch64-py311
+        - container: wpilib/aarch64-cross-ubuntu:2025-bullseye-22.04-py312
+          name: raspbian-aarch64-py312
+        - container: wpilib/aarch64-cross-ubuntu:bullseye-22.04-py313
+          name: raspbian-aarch64-py313
 
     container:
       image: "${{ matrix.os.container }}"
 
     steps:
     - uses: actions/checkout@v4
-      if: (inputs.enable_raspbian && matrix.os.name == 'raspbian') || (inputs.enable_roborio && matrix.os.name == 'roborio')
+      if: (inputs.enable_raspbian && startsWith(matrix.os.name, 'raspbian')) || (inputs.enable_roborio && matrix.os.name == 'roborio')
 
     - name: Show installed packages
       shell: bash
       run: |
         /build/venv/bin/cross-python -m pip list
 
-    - uses: actions/download-artifact@v3
+    - uses: actions/download-artifact@v4
       with:
         name: dist
         path: dist/
@@ -153,7 +153,7 @@ jobs:
     if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
 
     steps:
-    - uses: actions/download-artifact@v3
+    - uses: actions/download-artifact@v4
       with:
         name: dist
         path: dist/
