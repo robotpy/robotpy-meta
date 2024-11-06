@@ -43,11 +43,11 @@ pathplannerlib = ["robotpy-pathplannerlib"]
 
 # playingwithfusion = ["robotpy-playingwithfusion"]
 
-# phoenix5 = ["robotpy-ctre"]
+phoenix5 = ["robotpy-ctre"]
 
 phoenix6 = ["phoenix6"]
 
-# rev = ["robotpy-rev"]
+rev = ["robotpy-rev"]
 
 romi = ["robotpy-romi"]
 
