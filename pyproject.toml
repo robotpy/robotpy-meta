@@ -157,12 +157,12 @@ min_version = "2025.0.0b1"
 
 [tool.meta.packages."robotpy-ctre"]
 max_version = "2026.0.0"
-min_version = "2025.0.0b1"
+min_version = "2025.0.0b2.post1"
 constraint = "python_version >= '3.12' and platform_machine != 'armv7l' and platform_machine != 'aarch64'"
 
 [tool.meta.packages."robotpy-navx"]
 max_version = "2026.0.0"
-min_version = "2025.0.0b1"
+min_version = "2025.0.0b3"
 
 [tool.meta.packages."robotpy-pathplannerlib"]
 max_version = "2026.0.0"
