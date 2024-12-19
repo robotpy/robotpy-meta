@@ -60,7 +60,7 @@ xrp = ["robotpy-xrp"]
 #
 
 [tool.meta.packages."mostrobotpy"]
-version = "==2025.0.0b2"
+version = "==2025.0.0b3"
 
 [tool.meta.packages."pyntcore"]
 version = "mostrobotpy"
@@ -125,7 +125,7 @@ min_version = "2025.0.0b1"
 
 [tool.meta.packages."robotpy-installer"]
 max_version = "2026.0.0"
-min_version = "2025.0.0b1"
+min_version = "2025.0.0b3"
 constraint = 'platform_machine != "roborio" and platform_machine != "armv7l" and platform_machine != "aarch64"'
 
 [tool.meta.packages."robotpy-wpilib-utilities"]
@@ -177,7 +177,7 @@ min_version = "2025.0.0b1"
 
 [tool.meta.packages."robotpy-rev"]
 max_version = "2026.0.0"
-min_version = "2025.0.0b1.post1"
+min_version = "2025.0.0b4"
 
 [tool.meta.packages."invalid"]
 available = false
