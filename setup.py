@@ -65,6 +65,7 @@ setup(
     name="robotpy",
     description="Meta package to make installing robotpy easier",
     long_description=long_description,
+    long_description_content_type="text/markdown",
     author="RobotPy Development Team",
     author_email="robotpy@googlegroups.com",
     url="https://github.com/robotpy/robotpy-meta",
