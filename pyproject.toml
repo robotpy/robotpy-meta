@@ -35,15 +35,15 @@ commands2 = ["robotpy-commands-v2"]
 
 cscore = ["robotpy-cscore", "numpy", "robotpy-opencv"]
 
-navx = ["robotpy-navx"]
+# navx = ["robotpy-navx"]
 
-pathplannerlib = ["robotpy-pathplannerlib"]
+# pathplannerlib = ["robotpy-pathplannerlib"]
 
 # photonvision = ["photonlibpy"]
 
 # playingwithfusion = ["robotpy-playingwithfusion"]
 
-phoenix5 = ["robotpy-ctre"]
+# phoenix5 = ["robotpy-ctre"]
 
 phoenix6 = ["phoenix6"]
 
@@ -60,7 +60,7 @@ xrp = ["robotpy-xrp"]
 #
 
 [tool.meta.packages."mostrobotpy"]
-version = "==2025.0.0b3"
+version = "==2025.1.1"
 
 [tool.meta.packages."pyntcore"]
 version = "mostrobotpy"
@@ -112,7 +112,7 @@ version = "mostrobotpy"
 
 [tool.meta.packages."pyfrc"]
 max_version = "2026.0.0"
-min_version = "2025.0.0b1"
+min_version = "2025.0.0"
 constraint = 'platform_machine != "roborio" and platform_machine != "armv7l" and platform_machine != "aarch64"'
 
 [tool.meta.packages."robotpy-cli"]
@@ -121,16 +121,16 @@ min_version = "2024.0.0"
 
 [tool.meta.packages."robotpy-commands-v2"]
 max_version = "2026.0.0"
-min_version = "2025.0.0b1"
+min_version = "2025.1.1"
 
 [tool.meta.packages."robotpy-installer"]
 max_version = "2026.0.0"
-min_version = "2025.0.0b3"
+min_version = "2025.0.0"
 constraint = 'platform_machine != "roborio" and platform_machine != "armv7l" and platform_machine != "aarch64"'
 
 [tool.meta.packages."robotpy-wpilib-utilities"]
 max_version = "2026.0.0"
-min_version = "2025.0.0b1"
+min_version = "2025.0.0"
 
 
 #
@@ -146,7 +146,7 @@ version = ""
 constraint = "platform_machine == 'roborio'" # only require on RoboRIO
 
 [tool.meta.packages."phoenix6"]
-version = "~=25.0.0b1"
+version = "~=25.1.0"
 # the arm constraint is only here because we can't check this in CI, I think
 # their package will actually work
 constraint = "python_version >= '3.12' and platform_machine != 'armv7l' and platform_machine != 'aarch64'"
@@ -177,7 +177,7 @@ min_version = "2025.0.0b1"
 
 [tool.meta.packages."robotpy-rev"]
 max_version = "2026.0.0"
-min_version = "2025.0.0b4"
+min_version = "2025.0.0"
 constraint = "platform_machine != 'armv7l' and platform_machine != 'aarch64'"
 
 [tool.meta.packages."invalid"]
