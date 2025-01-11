@@ -43,7 +43,7 @@ pathplannerlib = ["robotpy-pathplannerlib"]
 
 # playingwithfusion = ["robotpy-playingwithfusion"]
 
-# phoenix5 = ["robotpy-ctre"]
+phoenix5 = ["robotpy-ctre"]
 
 phoenix6 = ["phoenix6"]
 
@@ -60,7 +60,7 @@ xrp = ["robotpy-xrp"]
 #
 
 [tool.meta.packages."mostrobotpy"]
-version = "==2025.1.1"
+version = "==2025.2.1"
 
 [tool.meta.packages."pyntcore"]
 version = "mostrobotpy"
