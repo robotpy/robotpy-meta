@@ -170,7 +170,7 @@ jobs:
 
   publish:
     runs-on: ubuntu-latest
-    needs: [check, test, cross-test]
+    needs: [check, test, docker-test, cross-test]
     permissions:
       id-token: write
     if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
