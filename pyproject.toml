@@ -112,7 +112,7 @@ version = "mostrobotpy"
 
 [tool.meta.packages."pyfrc"]
 max_version = "2026.0.0"
-min_version = "2025.0.0"
+min_version = "2025.1.0"
 constraint = 'platform_machine != "roborio" and platform_machine != "armv7l" and platform_machine != "aarch64"'
 
 [tool.meta.packages."robotpy-cli"]
