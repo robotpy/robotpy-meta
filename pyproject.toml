@@ -45,8 +45,6 @@ pathplannerlib = ["robotpy-pathplannerlib"]
 
 phoenix5 = ["robotpy-ctre"]
 
-phoenix6 = ["phoenix6"]
-
 rev = ["robotpy-rev"]
 
 romi = ["robotpy-romi"]
@@ -144,12 +142,6 @@ constraint = "platform_machine == 'roborio'" # only require on RoboRIO
 [tool.meta.packages."robotpy-opencv"]
 version = ""
 constraint = "platform_machine == 'roborio'" # only require on RoboRIO
-
-[tool.meta.packages."phoenix6"]
-version = "~=25.1.0"
-# the arm constraint is only here because we can't check this in CI, I think
-# their package will actually work
-constraint = "python_version >= '3.12' and platform_machine != 'armv7l' and platform_machine != 'aarch64'"
 
 [tool.meta.packages."photonlibpy"]
 max_version = "2026.0.0"
