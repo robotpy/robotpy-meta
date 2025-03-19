@@ -60,7 +60,7 @@ xrp = ["robotpy-xrp"]
 #
 
 [tool.meta.packages."mostrobotpy"]
-version = "==2025.3.1.1"
+version = "==2025.3.2.0"
 
 [tool.meta.packages."pyntcore"]
 version = "mostrobotpy"
@@ -121,11 +121,11 @@ min_version = "2024.0.0"
 
 [tool.meta.packages."robotpy-commands-v2"]
 max_version = "2026.0.0"
-min_version = "2025.1.1"
+min_version = "2025.3.2"
 
 [tool.meta.packages."robotpy-installer"]
 max_version = "2026.0.0"
-min_version = "2025.0.3"
+min_version = "2025.1.0"
 constraint = 'platform_machine != "roborio" and platform_machine != "armv7l" and platform_machine != "aarch64"'
 
 [tool.meta.packages."robotpy-wpilib-utilities"]
@@ -146,23 +146,24 @@ version = ""
 constraint = "platform_machine == 'roborio'" # only require on RoboRIO
 
 [tool.meta.packages."phoenix6"]
-version = "~=25.1.0"
+max_version = "26.0"
+min_version = "25.3.1"
 # the arm constraint is only here because we can't check this in CI, I think
 # their package will actually work
 constraint = "python_version >= '3.12' and platform_machine != 'armv7l' and platform_machine != 'aarch64'"
 
 [tool.meta.packages."photonlibpy"]
 max_version = "2026.0.0"
-min_version = "2025.0.0b1"
+min_version = "2025.2.1"
 
 [tool.meta.packages."robotpy-ctre"]
 max_version = "2026.0.0"
-min_version = "2025.0.0b2.post1"
+min_version = "2025.0.2.1"
 constraint = "python_version >= '3.12' and platform_machine != 'armv7l' and platform_machine != 'aarch64'"
 
 [tool.meta.packages."robotpy-navx"]
 max_version = "2026.0.0"
-min_version = "2025.0.0"
+min_version = "2025.0.1.1"
 
 [tool.meta.packages."robotpy-pathplannerlib"]
 max_version = "2026.0.0"
@@ -173,11 +174,11 @@ constraint = "python_version >= '3.10' and platform_machine != 'armv7l' and plat
 
 [tool.meta.packages."robotpy-playingwithfusion"]
 max_version = "2026.0.0"
-min_version = "2025.0.0b1"
+min_version = "2025.1.23.1"
 
 [tool.meta.packages."robotpy-rev"]
 max_version = "2026.0.0"
-min_version = "2025.0.0"
+min_version = "2025.0.3"
 constraint = "platform_machine != 'armv7l' and platform_machine != 'aarch64'"
 
 [tool.meta.packages."invalid"]
