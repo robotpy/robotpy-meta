@@ -1,15 +1,22 @@
 ---
 name: bump
 
-on: [repository_dispatch]
+on:
+  workflow_dispatch:
+    inputs:
+      package_name:
+        description: 'Package to bump'
+        required: true
+      package_version:
+        description: 'Package version'
+        required: true
 
 jobs:
   bump:
-    if: github.event_name == 'repository_dispatch' && github.event.action == 'tag'
     runs-on: ubuntu-latest
     env:
-      PACKAGE_NAME: ${{ github.event.client_payload.package_name }}
-      PACKAGE_VERSION: ${{ github.event.client_payload.package_version }}
+      PACKAGE_NAME: ${{ github.event.inputs.package_name }}
+      PACKAGE_VERSION: ${{ github.event.inputs.package_version }}
 
     steps:
     - name: Information
