@@ -45,21 +45,19 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-2022, macos-13, ubuntu-22.04]
+        os: [windows-2022, macos-13, macos-14, ubuntu-22.04]
         python_version:
         - '3.9'
         - '3.10'
         - '3.11'
         - '3.12'
         - '3.13'
-        architecture: [x64]
 
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python_version }}
-        architecture: ${{ matrix.architecture }}
 
     - name: Download build artifacts
       uses: actions/download-artifact@v4
