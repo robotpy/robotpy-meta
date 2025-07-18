@@ -6,6 +6,7 @@ on:
   push:
     branches:
     - main
+    - '2027'
     tags:
     - '*'
 
@@ -45,7 +46,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-2022, macos-13, macos-14, ubuntu-22.04]
+        os: [windows-2022, macos-13, macos-14, ubuntu-24.04]
         python_version:
         - '3.9'
         - '3.10'
@@ -85,7 +86,7 @@ jobs:
     # Only need to test that the wheel installs
 
   docker-test:
-    runs-on: ubuntu-22.04-arm
+    runs-on: ubuntu-24.04-arm
     strategy:
       matrix:
         python_version:
@@ -111,7 +112,7 @@ jobs:
       working-directory: dist
       run: |
         WHEEL=$(ls *.whl)
-        python -m pip --disable-pip-version-check install --extra-index-url=https://wpilib.jfrog.io/artifactory/api/pypi/wpilib-python-release-2025/simple ${WHEEL}[all]
+        python -m pip --disable-pip-version-check install --extra-index-url=https://wpilib.jfrog.io/artifactory/api/pypi/wpilib-python-release-2027/simple ${WHEEL}[all]
 
     - name: Show installed packages
       shell: bash
@@ -124,19 +125,19 @@ jobs:
     strategy:
       matrix:
         os:
-        - container: wpilib/roborio-cross-ubuntu:2025-22.04-py313
-          name: roborio
+        - container: wpilib/systemcore-cross-ubuntu:2025-22.04-py313
+          name: systemcore
 
         # - container: wpilib/raspbian-cross-ubuntu:2025-bullseye-22.04-py39
         #   name: raspbian-py39
         # - container: wpilib/raspbian-cross-ubuntu:2025-bullseye-22.04-py310
         #   name: raspbian-py310
-        - container: wpilib/raspbian-cross-ubuntu:2025-bullseye-22.04-py311
-          name: raspbian-py311
-        - container: wpilib/raspbian-cross-ubuntu:2025-bullseye-22.04-py312
-          name: raspbian-py312
-        - container: wpilib/raspbian-cross-ubuntu:2025-bullseye-22.04-py313
-          name: raspbian-py313
+        # - container: wpilib/raspbian-cross-ubuntu:2025-bullseye-22.04-py311
+        #   name: raspbian-py311
+        # - container: wpilib/raspbian-cross-ubuntu:2025-bullseye-22.04-py312
+        #   name: raspbian-py312
+        # - container: wpilib/raspbian-cross-ubuntu:2025-bookworm-24.04-py313
+        #   name: raspbian-py313
 
     container:
       image: "${{ matrix.os.container }}"
@@ -155,11 +156,12 @@ jobs:
         name: dist
         path: dist/
 
-    - name: Install
-      working-directory: dist
-      run: |
-        WHEEL=$(ls *.whl)
-        /build/venv/bin/cross-pip --disable-pip-version-check install ${WHEEL}[all]
+    # TODO: fix crossenv (https://github.com/benfogle/crossenv/issues/126)
+    # - name: Install
+    #   working-directory: dist
+    #   run: |
+    #     WHEEL=$(ls *.whl)
+    #     /build/venv/bin/cross-pip --disable-pip-version-check install ${WHEEL}[all]
 
     - name: Show installed packages
       shell: bash
