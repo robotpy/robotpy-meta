@@ -35,20 +35,6 @@ commands2 = ["robotpy-commands-v2"]
 
 cscore = ["robotpy-cscore", "numpy", "robotpy-opencv"]
 
-navx = ["robotpy-navx"]
-
-pathplannerlib = ["robotpy-pathplannerlib"]
-
-# photonvision = ["photonlibpy"]
-
-# playingwithfusion = ["robotpy-playingwithfusion"]
-
-phoenix5 = ["robotpy-ctre"]
-
-phoenix6 = ["phoenix6"]
-
-rev = ["robotpy-rev"]
-
 romi = ["robotpy-romi"]
 
 sim = ["robotpy-halsim-ds-socket", "robotpy-halsim-ws"]
@@ -134,7 +120,7 @@ min_version = "2025.0.0"
 
 
 #
-# Third party and vendor
+# Third party
 #
 
 [tool.meta.packages."numpy"]
@@ -144,42 +130,6 @@ constraint = "platform_machine == 'roborio'" # only require on RoboRIO
 [tool.meta.packages."robotpy-opencv"]
 version = ""
 constraint = "platform_machine == 'roborio'" # only require on RoboRIO
-
-[tool.meta.packages."phoenix6"]
-max_version = "26.0"
-min_version = "25.3.1"
-# the arm constraint is only here because we can't check this in CI, I think
-# their package will actually work
-constraint = "python_version >= '3.12' and platform_machine != 'armv7l' and platform_machine != 'aarch64'"
-
-[tool.meta.packages."photonlibpy"]
-max_version = "2026.0.0"
-min_version = "2025.2.1"
-
-[tool.meta.packages."robotpy-ctre"]
-max_version = "2026.0.0"
-min_version = "2025.0.3.1"
-constraint = "python_version >= '3.12' and platform_machine != 'armv7l' and platform_machine != 'aarch64'"
-
-[tool.meta.packages."robotpy-navx"]
-max_version = "2026.0.0"
-min_version = "2025.0.1.2"
-
-[tool.meta.packages."robotpy-pathplannerlib"]
-max_version = "2026.0.0"
-min_version = "2025.1.1"
-# depends on numpy 2.1.2 which depends on python 3.11+, and crossenv can't
-# install numpy for arm/aarch64
-constraint = "python_version >= '3.10' and platform_machine != 'armv7l' and platform_machine != 'aarch64'"
-
-[tool.meta.packages."robotpy-playingwithfusion"]
-max_version = "2026.0.0"
-min_version = "2025.1.23.2"
-
-[tool.meta.packages."robotpy-rev"]
-max_version = "2026.0.0"
-min_version = "2025.0.3.1"
-constraint = "platform_machine != 'armv7l' and platform_machine != 'aarch64'"
 
 [tool.meta.packages."invalid"]
 available = false
