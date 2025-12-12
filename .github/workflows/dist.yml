@@ -27,7 +27,7 @@ jobs:
     - uses: actions/checkout@v4
     - uses: actions/setup-python@v5
       with:
-        python-version: "3.9"
+        python-version: "3.10"
 
     - run: pip install build
 
@@ -45,13 +45,13 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-2022, macos-13, macos-14, ubuntu-22.04]
+        os: [windows-2022, macos-15-intel, macos-14, ubuntu-22.04]
         python_version:
-        - '3.9'
         - '3.10'
         - '3.11'
         - '3.12'
         - '3.13'
+        - '3.14'
 
     steps:
     - uses: actions/checkout@v4
@@ -92,6 +92,7 @@ jobs:
         - '3.11'
         - '3.12'
         - '3.13'
+        - '3.14'
     container: python:${{ matrix.python_version }}-bookworm
 
     steps:
@@ -111,7 +112,7 @@ jobs:
       working-directory: dist
       run: |
         WHEEL=$(ls *.whl)
-        python -m pip --disable-pip-version-check install --extra-index-url=https://wpilib.jfrog.io/artifactory/api/pypi/wpilib-python-release-2025/simple ${WHEEL}[all]
+        python -m pip --disable-pip-version-check install --extra-index-url=https://wpilib.jfrog.io/artifactory/api/pypi/wpilib-python-release-2026/simple ${WHEEL}[all]
 
     - name: Show installed packages
       shell: bash
@@ -124,19 +125,17 @@ jobs:
     strategy:
       matrix:
         os:
-        - container: wpilib/roborio-cross-ubuntu:2025-22.04-py313
+        - container: wpilib/roborio-cross-ubuntu:2026-22.04-py314
           name: roborio
 
-        # - container: wpilib/raspbian-cross-ubuntu:2025-bullseye-22.04-py39
-        #   name: raspbian-py39
-        # - container: wpilib/raspbian-cross-ubuntu:2025-bullseye-22.04-py310
-        #   name: raspbian-py310
-        - container: wpilib/raspbian-cross-ubuntu:2025-bullseye-22.04-py311
+        - container: wpilib/raspbian-cross-ubuntu:2026-bookworm-22.04-py311
           name: raspbian-py311
-        - container: wpilib/raspbian-cross-ubuntu:2025-bullseye-22.04-py312
+        - container: wpilib/raspbian-cross-ubuntu:2026-bookworm-22.04-py312
           name: raspbian-py312
-        - container: wpilib/raspbian-cross-ubuntu:2025-bullseye-22.04-py313
+        - container: wpilib/raspbian-cross-ubuntu:2026-bookworm-22.04-py313
           name: raspbian-py313
+        - container: wpilib/raspbian-cross-ubuntu:2026-bookworm-22.04-py314
+          name: raspbian-py314
 
     container:
       image: "${{ matrix.os.container }}"
