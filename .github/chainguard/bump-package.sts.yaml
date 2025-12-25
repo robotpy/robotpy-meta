@@ -1,0 +1,7 @@
+issuer: https://token.actions.githubusercontent.com
+subject_pattern: 'repo:robotpy/mostrobotpy:ref:refs/tags/[1-9]+.*'
+claim_pattern:
+  workflow_ref: 'robotpy/mostrobotpy/\.github/workflows/dist.yml@.*'
+
+permissions:
+  workflows: write

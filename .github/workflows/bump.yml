@@ -1,16 +1,27 @@
 ---
 name: bump
 
-on: [repository_dispatch]
+on:
+  workflow_dispatch:
+    inputs:
+      package_name:
+        description: 'Package to bump'
+        required: true
+      package_version:
+        description: 'Package version'
+        required: true
 
 jobs:
   bump:
-    if: github.event_name == 'repository_dispatch' && github.event.action == 'tag'
     runs-on: ubuntu-latest
+    env:
+      PACKAGE_NAME: ${{ github.event.inputs.package_name }}
+      PACKAGE_VERSION: ${{ github.event.inputs.package_version }}
+
     steps:
     - name: Information
       run: |
-        echo "Version update for ${{ github.event.client_payload.package_name }} -> ${{ github.event.client_payload.package_version }} requested"
+        echo "Version update for $PACKAGE_NAME -> $PACKAGE_VERSION requested"
     - uses: actions/checkout@v4
       with:
         token: ${{ secrets.REPO_ACCESS_TOKEN }}
@@ -27,7 +38,7 @@ jobs:
     - name: Bump requirements
       shell: bash
       run: |
-        python .github/workflows/bump.py ${{ github.event.client_payload.package_name }} ${{ github.event.client_payload.package_version }} "$(git describe --tags)"
+        python .github/workflows/bump.py "$PACKAGE_NAME" "$PACKAGE_VERSION" "$(git describe --tags)"
 
     - name: Commit and push
       shell: bash
@@ -35,12 +46,12 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "Github Action"
         git add pyproject.toml
-        git commit -m "Bump '${{ github.event.client_payload.package_name }}' dependency to '${{ github.event.client_payload.package_version }}'"
+        git commit -m "Bump '$PACKAGE_NAME' dependency to '$PACKAGE_VERSION'"
         git push
 
     - name: Tag and push
       shell: bash
       run: |
-        TAG=$(python .github/workflows/tag.py ${{ github.event.client_payload.package_name }} ${{ github.event.client_payload.package_version }} "$(git describe --tags --no-abbrev)")
-        git tag ${TAG}
-        git push origin ${TAG}
+        TAG=$(python .github/workflows/tag.py "$PACKAGE_NAME" "$PACKAGE_VERSION" "$(git describe --tags --no-abbrev)")
+        git tag "${TAG}"
+        git push origin "${TAG}"
