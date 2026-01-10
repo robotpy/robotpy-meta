@@ -46,7 +46,7 @@ xrp = ["robotpy-xrp"]
 #
 
 [tool.meta.packages."mostrobotpy"]
-version = "==2026.1.1b1"
+version = "==2026.1.1"
 
 [tool.meta.packages."pyntcore"]
 version = "mostrobotpy"
@@ -92,31 +92,32 @@ constraint = 'platform_machine != "roborio"'
 [tool.meta.packages."wpilib"]
 version = "mostrobotpy"
 
+[tool.meta.packages."robotpy-commands-v2"]
+version = "mostrobotpy"
+
 #
 # Other RobotPy packages
 #
 
 [tool.meta.packages."pyfrc"]
 max_version = "2027.0.0"
-min_version = "2026.0.1b1"
+min_version = "2026.0.1"
 constraint = 'platform_machine != "roborio" and platform_machine != "armv7l" and platform_machine != "aarch64"'
 
 [tool.meta.packages."robotpy-cli"]
 max_version = "2027.0.0"
-min_version = "2026.0.1b1"
+min_version = "2026.0.1"
 
-[tool.meta.packages."robotpy-commands-v2"]
-max_version = "2027.0.0"
-min_version = "2026.1.1b1"
+
 
 [tool.meta.packages."robotpy-installer"]
 max_version = "2027.0.0"
-min_version = "2026.0.1b1"
+min_version = "2026.0.1"
 constraint = 'platform_machine != "roborio" and platform_machine != "armv7l" and platform_machine != "aarch64"'
 
 [tool.meta.packages."robotpy-wpilib-utilities"]
 max_version = "2027.0.0"
-min_version = "2026.0.1b1"
+min_version = "2026.0.1"
 
 
 #
