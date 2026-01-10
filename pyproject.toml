@@ -59,7 +59,7 @@ version = "mostrobotpy"
 
 [tool.meta.packages."robotpy-halsim-ds-socket"]
 version = "mostrobotpy"
-constraint = 'platform_machine != "roborio" and platform_machine != "armv7l" and platform_machine != "aarch64"'
+constraint = 'platform_machine != "roborio"'
 
 [tool.meta.packages."robotpy-halsim-gui"]
 version = "mostrobotpy"
@@ -67,7 +67,7 @@ constraint = 'platform_machine != "roborio"'
 
 [tool.meta.packages."robotpy-halsim-ws"]
 version = "mostrobotpy"
-constraint = 'platform_machine != "roborio" and platform_machine != "armv7l" and platform_machine != "aarch64"'
+constraint = 'platform_machine != "roborio"'
 
 [tool.meta.packages."robotpy-cscore"]
 version = "mostrobotpy"
@@ -102,7 +102,7 @@ version = "mostrobotpy"
 [tool.meta.packages."pyfrc"]
 max_version = "2027.0.0"
 min_version = "2026.0.1"
-constraint = 'platform_machine != "roborio" and platform_machine != "armv7l" and platform_machine != "aarch64"'
+constraint = 'platform_machine != "roborio" and platform_machine != "armv7l"'
 
 [tool.meta.packages."robotpy-cli"]
 max_version = "2027.0.0"
@@ -113,7 +113,7 @@ min_version = "2026.0.1"
 [tool.meta.packages."robotpy-installer"]
 max_version = "2027.0.0"
 min_version = "2026.0.1"
-constraint = 'platform_machine != "roborio" and platform_machine != "armv7l" and platform_machine != "aarch64"'
+constraint = 'platform_machine != "roborio" and platform_machine != "armv7l"'
 
 [tool.meta.packages."robotpy-wpilib-utilities"]
 max_version = "2027.0.0"
