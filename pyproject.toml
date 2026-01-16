@@ -46,7 +46,7 @@ xrp = ["robotpy-xrp"]
 #
 
 [tool.meta.packages."mostrobotpy"]
-version = "==2026.1.1"
+version = "==2026.2.1"
 
 [tool.meta.packages."pyntcore"]
 version = "mostrobotpy"
@@ -125,7 +125,9 @@ min_version = "2026.0.1"
 #
 
 [tool.meta.packages."numpy"]
-version = "==2.3.5.*"
+min_version = "2.3.5"
+max_version = "2.4.2"
+# version = "==2.3.5.*"
 constraint = "platform_machine == 'roborio'" # only require on RoboRIO
 
 [tool.meta.packages."robotpy-opencv"]
