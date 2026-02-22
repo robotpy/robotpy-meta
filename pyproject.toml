@@ -46,6 +46,9 @@ xrp = ["robotpy-xrp"]
 #
 
 [tool.meta.packages."mostrobotpy"]
+version = "==2026.2.1.1"
+
+[tool.meta.packages."mostrobotpy-native"]
 version = "==2026.2.1"
 
 [tool.meta.packages."pyntcore"]
@@ -58,7 +61,7 @@ version = "mostrobotpy"
 version = "mostrobotpy"
 
 [tool.meta.packages."robotpy-halsim-ds-socket"]
-version = "mostrobotpy"
+version = "mostrobotpy-native"
 constraint = 'platform_machine != "roborio"'
 
 [tool.meta.packages."robotpy-halsim-gui"]
@@ -66,7 +69,7 @@ version = "mostrobotpy"
 constraint = 'platform_machine != "roborio"'
 
 [tool.meta.packages."robotpy-halsim-ws"]
-version = "mostrobotpy"
+version = "mostrobotpy-native"
 constraint = 'platform_machine != "roborio"'
 
 [tool.meta.packages."robotpy-cscore"]
@@ -101,7 +104,7 @@ version = "mostrobotpy"
 
 [tool.meta.packages."pyfrc"]
 max_version = "2027.0.0"
-min_version = "2026.0.1"
+min_version = "2026.0.2"
 constraint = 'platform_machine != "roborio" and platform_machine != "armv7l"'
 
 [tool.meta.packages."robotpy-cli"]
@@ -117,7 +120,7 @@ constraint = 'platform_machine != "roborio" and platform_machine != "armv7l"'
 
 [tool.meta.packages."robotpy-wpilib-utilities"]
 max_version = "2027.0.0"
-min_version = "2026.0.1"
+min_version = "2026.1.0"
 
 
 #
