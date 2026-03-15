@@ -46,10 +46,10 @@ xrp = ["robotpy-xrp"]
 #
 
 [tool.meta.packages."mostrobotpy"]
-version = "==2026.2.1.1"
+version = "==2026.2.2"
 
 [tool.meta.packages."mostrobotpy-native"]
-version = "==2026.2.1"
+version = "==2026.2.2"
 
 [tool.meta.packages."pyntcore"]
 version = "mostrobotpy"
