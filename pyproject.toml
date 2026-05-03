@@ -48,6 +48,9 @@ xrp = ["robotpy-xrp"]
 [tool.meta.packages."mostrobotpy"]
 version = "==2027.0.0a5.post1"
 
+[tool.meta.packages."mostrobotpy-halsim-native"]
+version = "==2027.0.0a5"
+
 [tool.meta.packages."pyntcore"]
 version = "mostrobotpy"
 
@@ -58,7 +61,7 @@ version = "mostrobotpy"
 version = "mostrobotpy"
 
 [tool.meta.packages."robotpy-halsim-ds-socket"]
-version = "mostrobotpy"
+version = "mostrobotpy-halsim-native"
 constraint = 'platform_machine != "systemcore" and platform_machine != "armv7l" and platform_machine != "aarch64"'
 
 [tool.meta.packages."robotpy-halsim-gui"]
@@ -66,7 +69,7 @@ version = "mostrobotpy"
 constraint = 'platform_machine != "systemcore"'
 
 [tool.meta.packages."robotpy-halsim-ws"]
-version = "mostrobotpy"
+version = "mostrobotpy-halsim-native"
 constraint = 'platform_machine != "systemcore" and platform_machine != "armv7l" and platform_machine != "aarch64"'
 
 [tool.meta.packages."robotpy-cscore"]
