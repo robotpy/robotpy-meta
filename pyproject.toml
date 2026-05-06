@@ -16,6 +16,7 @@ build-backend = "setuptools.build_meta"
 [tool.meta.extras]
 default = [
     "robotpy-wpiutil",
+    "robotpy-wpilog",
     "robotpy-wpinet",
     "robotpy-wpimath",
     "pyntcore",
@@ -25,7 +26,6 @@ default = [
     "robotpy-halsim-gui",
     "robotpy-wpilib-utilities",
     "robotpy-installer",
-    "pyfrc",
     "robotpy-cli",
 ]
 
@@ -33,7 +33,7 @@ apriltag = ["robotpy-apriltag", "numpy"]
 
 commands2 = ["robotpy-commands-v2"]
 
-cscore = ["robotpy-cscore", "numpy", "robotpy-opencv"]
+#cscore = ["robotpy-cscore", "numpy", "robotpy-opencv"]
 
 romi = ["robotpy-romi"]
 
@@ -46,10 +46,10 @@ xrp = ["robotpy-xrp"]
 #
 
 [tool.meta.packages."mostrobotpy"]
-version = "==2026.2.2"
+version = "==2027.0.0a5.post1"
 
-[tool.meta.packages."mostrobotpy-native"]
-version = "==2026.2.2"
+[tool.meta.packages."mostrobotpy-halsim-native"]
+version = "==2027.0.0a5"
 
 [tool.meta.packages."pyntcore"]
 version = "mostrobotpy"
@@ -61,23 +61,26 @@ version = "mostrobotpy"
 version = "mostrobotpy"
 
 [tool.meta.packages."robotpy-halsim-ds-socket"]
-version = "mostrobotpy-native"
-constraint = 'platform_machine != "roborio"'
+version = "mostrobotpy-halsim-native"
+constraint = 'platform_machine != "systemcore" and platform_machine != "armv7l" and platform_machine != "aarch64"'
 
 [tool.meta.packages."robotpy-halsim-gui"]
 version = "mostrobotpy"
-constraint = 'platform_machine != "roborio"'
+constraint = 'platform_machine != "systemcore"'
 
 [tool.meta.packages."robotpy-halsim-ws"]
-version = "mostrobotpy-native"
-constraint = 'platform_machine != "roborio"'
+version = "mostrobotpy-halsim-native"
+constraint = 'platform_machine != "systemcore" and platform_machine != "armv7l" and platform_machine != "aarch64"'
 
 [tool.meta.packages."robotpy-cscore"]
 version = "mostrobotpy"
 
 [tool.meta.packages."robotpy-romi"]
 version = "mostrobotpy"
-constraint = 'platform_machine != "roborio"'
+constraint = 'platform_machine != "systemcore"'
+
+[tool.meta.packages."robotpy-wpilog"]
+version = "mostrobotpy"
 
 [tool.meta.packages."robotpy-wpimath"]
 version = "mostrobotpy"
@@ -90,7 +93,7 @@ version = "mostrobotpy"
 
 [tool.meta.packages."robotpy-xrp"]
 version = "mostrobotpy"
-constraint = 'platform_machine != "roborio"'
+constraint = 'platform_machine != "systemcore"'
 
 [tool.meta.packages."wpilib"]
 version = "mostrobotpy"
@@ -102,40 +105,31 @@ version = "mostrobotpy"
 # Other RobotPy packages
 #
 
-[tool.meta.packages."pyfrc"]
-max_version = "2027.0.0"
-min_version = "2026.0.2"
-constraint = 'platform_machine != "roborio" and platform_machine != "armv7l"'
-
 [tool.meta.packages."robotpy-cli"]
-max_version = "2027.0.0"
-min_version = "2026.0.1"
-
-
+max_version = "2028.0.0"
+min_version = "2024.0.0"
 
 [tool.meta.packages."robotpy-installer"]
-max_version = "2027.0.0"
-min_version = "2026.0.1"
-constraint = 'platform_machine != "roborio" and platform_machine != "armv7l"'
+max_version = "2028.0.0"
+min_version = "2027.0.0a5"
+constraint = 'platform_machine != "systemcore" and platform_machine != "armv7l" and platform_machine != "aarch64"'
 
 [tool.meta.packages."robotpy-wpilib-utilities"]
-max_version = "2027.0.0"
-min_version = "2026.1.0"
+max_version = "2028.0.0"
+min_version = "2027.0.0a1"
 
 
 #
-# Third party
+# Third party ]
 #
 
 [tool.meta.packages."numpy"]
-min_version = "2.3.5"
-max_version = "2.4.2"
-# version = "==2.3.5.*"
-constraint = "platform_machine == 'roborio'" # only require on RoboRIO
-
-[tool.meta.packages."robotpy-opencv"]
 version = ""
-constraint = "platform_machine == 'roborio'" # only require on RoboRIO
+constraint = "platform_machine == 'systemcore'" # only require on systemcore
+
+#[tool.meta.packages."robotpy-opencv"]
+#version = ""
+#constraint = "platform_machine == 'systemcore'" # only require on systemcore
 
 [tool.meta.packages."invalid"]
 available = false
