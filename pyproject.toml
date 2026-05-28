@@ -46,7 +46,7 @@ xrp = ["robotpy-xrp"]
 #
 
 [tool.meta.packages."mostrobotpy"]
-version = "==2027.0.0a6"
+version = "==2027.0.0a6.post1"
 
 [tool.meta.packages."mostrobotpy-halsim-native"]
 version = "==2027.0.0a6"
