@@ -48,27 +48,17 @@ jobs:
       matrix:
         os:
         - "ubuntu-24.04"
+        - "ubuntu-24.04-arm"
         - "macos-15-intel" # x86_64
-        - "macos-14" # arm64
+        - "macos-15" # arm64
         - "windows-2022"
         python_version:
         - '3.11'
         - '3.12'
         - '3.13'
         - '3.14'
-        include:
-        - os: ubuntu-24.04-arm
-          python_version: '3.11'
-          container: python:3.11-bookworm
-        - os: ubuntu-24.04-arm
-          python_version: '3.12'
-          container: python:3.12-bookworm
-        - os: ubuntu-24.04-arm
-          python_version: '3.13'
-          container: python:3.13-bookworm
-        - os: ubuntu-24.04-arm
-          python_version: '3.14'
-          container: python:3.14-bookworm
+
+    container: ${{ startsWith(matrix.os, 'ubuntu-') && format('python:{0}-trixie', matrix.python_version) || '' }}
 
     steps:
     - uses: actions/checkout@v6
@@ -93,43 +83,6 @@ jobs:
         cd dist
         WHEEL=$(ls *.whl)
         python -m pip --disable-pip-version-check install ${WHEEL}[all]
-
-    - name: Show installed packages
-      shell: bash
-      run: |
-        python -m pip list
-
-    # Only need to test that the wheel installs
-
-  docker-test:
-    runs-on: ubuntu-24.04-arm
-    strategy:
-      matrix:
-        python_version:
-        - '3.11'
-        - '3.12'
-        - '3.13'
-        - '3.14'
-    container: python:${{ matrix.python_version }}-bookworm
-
-    steps:
-    - name: Download build artifacts
-      uses: actions/download-artifact@v8
-      with:
-        name: dist
-        path: dist
-
-    - name: Show installed packages
-      shell: bash
-      run: |
-        python -m pip list
-
-    - name: Install native wheel
-      shell: bash
-      working-directory: dist
-      run: |
-        WHEEL=$(ls *.whl)
-        python -m pip --disable-pip-version-check install --extra-index-url=https://wpilib.jfrog.io/artifactory/api/pypi/wpilib-python-release-2027/simple ${WHEEL}[all]
 
     - name: Show installed packages
       shell: bash
@@ -187,7 +140,7 @@ jobs:
 
   publish:
     runs-on: ubuntu-latest
-    needs: [check, test, docker-test, cross-test]
+    needs: [check, test, cross-test]
     permissions:
       id-token: write
     if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
