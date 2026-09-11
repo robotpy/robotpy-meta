@@ -95,7 +95,7 @@ jobs:
     strategy:
       matrix:
         os:
-        - container: wpilib/systemcore-cross-ubuntu:2025-22.04-py313
+        - container: wpilib/systemcore-cross-debian:2026-trixie-py314
           name: systemcore
 
         # - container: wpilib/raspbian-cross-ubuntu:2025-bullseye-22.04-py39
@@ -114,7 +114,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v6
-      if: (inputs.enable_raspbian && startsWith(matrix.os.name, 'raspbian')) || (inputs.enable_roborio && matrix.os.name == 'roborio')
 
     - name: Show installed packages
       shell: bash
@@ -126,12 +125,11 @@ jobs:
         name: dist
         path: dist/
 
-    # TODO: fix crossenv (https://github.com/benfogle/crossenv/issues/126)
-    # - name: Install
-    #   working-directory: dist
-    #   run: |
-    #     WHEEL=$(ls *.whl)
-    #     /build/venv/bin/cross-pip --disable-pip-version-check install ${WHEEL}[all]
+    - name: Install
+      working-directory: dist
+      run: |
+        WHEEL=$(ls *.whl)
+        /build/venv/bin/cross-pip --disable-pip-version-check install ${WHEEL}[all]
 
     - name: Show installed packages
       shell: bash
