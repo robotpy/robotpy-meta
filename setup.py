@@ -72,7 +72,7 @@ setup(
     license="BSD-3-Clause",
     install_requires=install_requires,
     extras_require=extras_require,
-    python_requires=">=3.11,<3.15",
+    python_requires=">=3.12,<3.16",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
