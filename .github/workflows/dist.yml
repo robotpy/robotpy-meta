@@ -53,10 +53,10 @@ jobs:
         - "macos-15" # arm64
         - "windows-2022"
         python_version:
-        - '3.11'
         - '3.12'
         - '3.13'
         - '3.14'
+        - '3.15'
 
     container: ${{ startsWith(matrix.os, 'ubuntu-') && format('python:{0}-trixie', matrix.python_version) || '' }}
 
@@ -95,7 +95,7 @@ jobs:
     strategy:
       matrix:
         os:
-        - container: wpilib/systemcore-cross-debian:2026-trixie-py314
+        - container: wpilib/systemcore-cross-debian:2026-trixie-py315
           name: systemcore
 
         # - container: wpilib/raspbian-cross-ubuntu:2025-bullseye-22.04-py39
